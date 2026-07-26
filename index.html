@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gideceğin Site Başlığı</title>
 
-    <!-- X (Twitter) Önizlemesi için Kapak Resmi (Video oynatıcılar link içinde doğrudan oynamadığı için X'te yine bu kapak görünür) -->
+    <!-- X (Twitter) Önizlemesi için Kapak Resmi -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Burada kartın üzerinde görünecek başlık yer alır">
     <meta name="twitter:description" content="Kısa açıklama metni...">
-    <meta name="twitter:image" content="https://kullaniciadin.github.io/repo-adin/kapak-resmi.jpg">
+    <meta name="twitter:image" content="https://zaferfoca.github.io/video-paylasim/HOH2G89WUaARMat.jpg">
 
     <meta property="og:title" content="Burada kartın üzerinde görünecek başlık yer alır">
     <meta property="og:description" content="Kısa açıklama metni...">
-    <meta property="og:image" content="https://kullaniciadin.github.io/repo-adin/kapak-resmi.jpg">
+    <meta property="og:image" content="https://zaferfoca.github.io/video-paylasim/HOH2G89WUaARMat.jpg">
     <meta property="og:url" content="https://yonlendirmek_istedigin_asil_adres.com">
     
     <style>
@@ -37,21 +37,21 @@
 </head>
 <body>
 
-    <!-- 10 Saniyelik Videoyu Sitenin İçinde Oynatma -->
+    <!-- Videoyu doğrudan kendi repondan oynatma -->
     <video id="yonlendirmeVideosu" autoplay muted playsinline>
-        <source src="https://avtshare01.rz.tu-ilmenau.de/avt-vqdb-uhd-1/test_1/segments/cutting_orange_tuil_2000kbps_720p_59.94fps_h264.mp4" type="video/mp4">
+        <source src="cutting_orange_tuil_2000kbps_720p_59.94fps_h264.mp4" type="video/mp4">
         Tarayıcınız video etiketini desteklemiyor.
     </video>
 
     <script>
         const video = document.getElementById('yonlendirmeVideosu');
 
-        // Video bittiğinde (yaklaşık 10 saniye sonra) hedef adrese otomatik fırlatır:
+        // Video bittiğinde hedef adrese otomatik fırlatır:
         video.onended = function() {
             window.location.href = "https://yonlendirmek_istedigin_asil_adres.com";
         };
 
-        // Alternatif: Kullanıcı videonun herhangi bir yerine tıklarsa da hemen gitsin istersen:
+        // Kullanıcı videonun herhangi bir yerine tıklarsa hemen fırlatır:
         document.body.onclick = function() {
             window.location.href = "https://yonlendirmek_istedigin_asil_adres.com";
         };
