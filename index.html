@@ -1,61 +1,128 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gideceğin Site Başlığı</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- X (Twitter) Önizlemesi için Kapak Resmi -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Burada kartın üzerinde görünecek başlık yer alır">
-    <meta name="twitter:description" content="Kısa açıklama metni...">
-    <meta name="twitter:image" content="https://zaferfoca.github.io/video-paylasim/HOH2G89WUaARMat.jpg">
+<title>Video</title>
 
-    <meta property="og:title" content="Burada kartın üzerinde görünecek başlık yer alır">
-    <meta property="og:description" content="Kısa açıklama metni...">
-    <meta property="og:image" content="https://zaferfoca.github.io/video-paylasim/HOH2G89WUaARMat.jpg">
-    <meta property="og:url" content="https://yonlendirmek_istedigin_asil_adres.com">
-    
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            font-family: sans-serif;
-        }
-        video {
-            max-width: 100%;
-            height: auto;
-            max-height: 80vh;
-        }
-    </style>
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Videoyu İzlemek İçin Tıkla">
+<meta name="twitter:description" content="Videoyu izlemek için dokun.">
+<meta name="twitter:image" content="https://zaferfoca.github.io/video-paylasim/HOH2G89WUaARMat.jpg">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Videoyu İzlemek İçin Tıkla">
+<meta property="og:description" content="Videoyu izlemek için dokun.">
+<meta property="og:image" content="https://zaferfoca.github.io/video-paylasim/HOH2G89WUaARMat.jpg">
+<meta property="og:type" content="website">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,body{
+width:100%;
+height:100%;
+background:#000;
+overflow:hidden;
+cursor:pointer;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+#video{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+background:#000;
+}
+
+#overlay{
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+pointer-events:none;
+}
+
+#play{
+width:90px;
+height:90px;
+border-radius:50%;
+background:rgba(255,255,255,.20);
+backdrop-filter:blur(8px);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:38px;
+color:white;
+animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <!-- Videoyu doğrudan kendi repondan oynatma -->
-    <video id="yonlendirmeVideosu" autoplay muted playsinline>
-        <source src="cutting_orange_tuil_2000kbps_720p_59.94fps_h264.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-    </video>
+<video
+id="video"
+autoplay
+muted
+playsinline
+loop>
 
-    <script>
-        const video = document.getElementById('yonlendirmeVideosu');
+<source src="cutting_orange_tuil_2000kbps_720p_59.94fps_h264.mp4" type="video/mp4">
 
-        // Video bittiğinde hedef adrese otomatik fırlatır:
-        video.onended = function() {
-            window.location.href = "https://yonlendirmek_istedigin_asil_adres.com";
-        };
+</video>
 
-        // Kullanıcı videonun herhangi bir yerine tıklarsa hemen fırlatır:
-        document.body.onclick = function() {
-            window.location.href = "https://yonlendirmek_istedigin_asil_adres.com";
-        };
-    </script>
+<div id="overlay">
+<div id="play">▶</div>
+</div>
+
+<script>
+
+const HEDEF_SITE="https://BURAYA_LINKINI_YAZ";
+
+function git(){
+window.location.href=HEDEF_SITE;
+}
+
+document.body.addEventListener("click",git);
+
+const video=document.getElementById("video");
+
+video.addEventListener("ended",git);
+
+// Bazı telefonlarda autoplay engellenirse
+video.play().catch(()=>{});
+
+</script>
 
 </body>
 </html>
